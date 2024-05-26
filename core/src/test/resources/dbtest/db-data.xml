@@ -1,0 +1,10 @@
+<dataset>
+    <cat id="1" name="c1" breed="b1" catYears="1" />
+    <cat id="2" name="c2" breed="b2" catYears="2" />
+    <cat id="3" name="c3" breed="b3" catYears="3" />
+    <cat id="4" name="c4" breed="b4" catYears="4" />
+    <customer id="1" name="cs1" phoneNumber="1111111111" />
+    <customer id="2" name="cs2" phoneNumber="2222222222" />
+    <food id="1" name="f1" producer="p1" expirationDate="2056-12-12"/>
+    <food id="2" name="f2" producer="p2" expirationDate="2020-12-12"/>
+</dataset>

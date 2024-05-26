@@ -1,0 +1,37 @@
+<div style="display: flex; justify-content: space-around">
+  <div style="display: flex; flex-direction: column; justify-content: space-around">
+    <ul class="catFoods">
+      <li *ngFor="let catFood of catFoods" [class.selected]="catFood === selectedCatFood"
+          (click)="onSelect(catFood)">
+        <span class="badge">{{catFood.cat.id}}, {{catFood.food.id}}</span> {{catFood.cat.name}}
+        eats {{catFood.food.name}}
+        <button class="delete" title="delete cat food"
+                (click)="delete(catFood)">x
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div style="display: flex; flex-direction: column">
+  <div style="display: flex; justify-content: space-evenly">
+    <div style="display: flex; flex-direction: column; justify-content: space-around">
+      <ul class="elems">
+        <li *ngFor="let cat of cats" [class.selected]="cat === selectedCat"
+            (click)="onSelectCat(cat)">
+          <span class="badge">{{cat.id}}</span> {{cat.name}}
+        </li>
+      </ul>
+    </div>
+
+    <div style="display: flex; flex-direction: column; justify-content: space-around">
+      <ul class="elems">
+        <li *ngFor="let food of food" [class.selected]="food === selectedFood"
+            (click)="onSelectFood(food)">
+          <span class="badge">{{food.id}}</span>{{food.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+    <button class="add-button" title="addCatFood" (click)="addCatFood()">Add Cat Food</button>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div style="display: flex; justify-content: space-around">
+  <div style="display: flex; flex-direction: column; justify-content: space-around">
+    <ul class="purchases">
+      <li *ngFor="let purchase of purchases" [class.selected]="purchase === selectedPurchase"
+          (click)="onSelect(purchase)">
+        <span class="badge">{{purchase.cat.id}}, {{purchase.customer.id}}</span> {{purchase.cat.name}}
+        bought by {{purchase.customer.name}}
+      </li>
+    </ul>
+    <label>Minimum Review: </label>
+    <input #minReview>
+    <button (click)="filterWithReview(minReview.value)">Filter By Review</button>
+  </div>
+
+  <div style="display: flex; flex-direction: column">
+    <div style="display: flex; justify-content: space-evenly">
+      <div style="display: flex; flex-direction: column; justify-content: space-around">
+        <ul class="elems">
+          <li *ngFor="let cat of cats" [class.selected]="cat === selectedCat"
+              (click)="onSelectCat(cat)">
+            <span class="badge">{{cat.id}}</span> {{cat.name}}
+          </li>
+        </ul>
+      </div>
+
+      <div class="form">
+        <div>
+          <label for="name">Price:</label>
+          <input id="name" #purchasePrice>
+        </div>
+        <div>
+          <label for="dateAcquired">DateAcquired:</label>
+          <input id="dateAcquired" #dateAcquired type="date">
+        </div>
+        <div>
+          <label for="review">Review: </label>
+          <input id="review" #purchaseReview>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: space-around">
+        <ul class="elems">
+          <li *ngFor="let customer of customers" [class.selected]="customer === selectedCustomer"
+              (click)="onSelectCustomer(customer)">
+            <span class="badge">{{customer.id}}</span>{{customer.name}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <button class="add-button" title="makePurchase" (click)="makePurchase(purchasePrice.value, dateAcquired.value, purchaseReview.value)">Add Purchase</button>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<h2>Cats</h2>
+<div style="display: flex; justify-content: space-evenly">
+  <div style="display: flex; flex-direction: column; justify-content: space-evenly">
+    <ul class="cats">
+      <li *ngFor="let cat of cats" [class.selected]="cat === selectedCat" (click)="onSelect(cat)">
+        <span class="badge">{{cat.id}}</span>{{cat.name}}
+        <button class="delete" title="delete cat"
+                (click)="delete(cat)">x
+        </button>
+      </li>
+    </ul>
+    <button class="filterButton" (click)="orderCatsByAge()">Show cats by age</button>
+  </div>
+  <div class="form">
+    <form name="addCat" [formGroup]="addCatForm" (ngSubmit)="addCatForm.valid && onSubmit()">
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" #catName type="text" formControlName="catName"
+               [ngClass]="{'is-invalid': addCatForm.get('catName').touched && addCatForm.get('catName').invalid}"
+               required placeholder="name">
+      </div>
+      <div class="invalid-form" *ngIf="addCatForm.get('catName').touched && addCatForm.get('catName').invalid">
+        Cat Name is required
+      </div>
+      <div>
+        <label for="breed">Breed:</label>
+        <input id="breed" #catBreed type="text" formControlName="catBreed"
+               [ngClass]="{'is-invalid': addCatForm.get('catBreed').touched && addCatForm.get('catBreed').invalid}"
+               required placeholder="breed">
+      </div>
+      <div class="invalid-form" *ngIf="addCatForm.get('catBreed').touched && addCatForm.get('catBreed').invalid">
+        Cat breed is required
+      </div>
+      <div>
+        <label for="age">Age:</label>
+        <input id="age" #catAge type="text" formControlName="catYears"
+               [ngClass]="{'is-invalid': addCatForm.get('catYears').touched && addCatForm.get('catYears').invalid}"
+               required placeholder="age">
+      </div>
+      <div class="invalid-form" *ngIf="addCatForm.get('catYears').touched && addCatForm.get('catYears').invalid">
+        Cat age is required
+      </div>
+      <button class="add-button" (click)="add(catName.value, catBreed.value, catAge.value)">Add Cat</button>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="selectedCat">
+  <h2>{{selectedCat.name | uppercase}} was selected</h2>
+  <div *ngIf="selectedCat" class="formInputFields">
+    <div>
+      <label>
+        Serial number: {{selectedCat.id}}
+      </label>
+    </div>
+
+    <div>
+      <label>Name: </label>
+      <input [(ngModel)]="selectedCat.name" placeholder="name">
+    </div>
+
+    <div>
+      <label>Breed: </label>
+      <input [(ngModel)]="selectedCat.breed" placeholder="breed">
+    </div>
+
+    <div>
+      <label>Age: </label>
+      <input [(ngModel)]="selectedCat.catYears" placeholder="age">
+    </div>
+
+    <div *ngIf="selectedCat.favoriteToyName != null">
+      <label> Favorite Toy Name: {{selectedCat.favoriteToyName}} </label>
+    </div>
+
+    <div *ngIf="selectedCat.favoriteToySize != null">
+      <label> Favorite Toy Size: {{selectedCat.favoriteToySize}} </label>
+    </div>
+
+    <button class="add-button" (click)="save()">Save</button>
+  </div>
+</div>

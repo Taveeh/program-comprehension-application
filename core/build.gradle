@@ -1,0 +1,34 @@
+targetCompatibility = JavaVersion.VERSION_15
+dependencies {
+
+    //jpa
+    implementation group: 'org.springframework', name: 'spring-context-support', version: "$springVersion"
+    implementation group: 'org.springframework', name: 'spring-orm', version: "$springVersion"
+    implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: "$springDataVersion"
+
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.12.1'
+
+
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.12.1'
+
+
+    implementation group: 'org.hibernate', name: 'hibernate-core', version:"$hibernateVersion"
+
+    implementation group: 'org.postgresql', name: 'postgresql', version: "$postgresqlVersion"
+
+    implementation group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: "$caffeineVersion"
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: "$hikariVersion"
+
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: "$jaxbapiVersion"
+
+    //dbunit-test-config
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: "$hikariVersion"
+    implementation group: 'org.dbunit', name: 'dbunit', version: "$dbUnitVersion"
+    implementation group: 'com.h2database', name: 'h2', version: "$h2DbVersion"
+    implementation group: 'com.github.springtestdbunit', name: 'spring-test-dbunit', version: "$springtestdbunitVersion"
+
+}

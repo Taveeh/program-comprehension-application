@@ -1,0 +1,37 @@
+<h2>All Toys</h2>
+<div style="display: flex; justify-content: space-evenly">
+  <div style="display: flex; justify-content: space-evenly; flex-direction: column">
+    <div style="display: flex; justify-content: space-evenly">
+      <div style="display: flex; flex-direction: column; justify-content: space-around">
+        <ul class="toys">
+          <li *ngFor="let toy of toys" [class.selected]="toy === selectedToy" (click)="onSelect(toy)">
+            <span class="badge">{{toy.id}}</span>{{toy.name}}
+          </li>
+        </ul>
+      </div>
+
+      <div style="display: flex; flex-direction: column; justify-content: space-around">
+        <ul class="elems">
+          <li *ngFor="let cat of cats" [class.selected]="cat === selectedCat" (click)="onSelectCat(cat)">
+            <span class="badge">{{cat.id}}</span>{{cat.name}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <button class="add-button" title="assignFavoriteToy" (click)="assignToyToCat()">Assign Toy</button>
+  </div>
+  <div class="form">
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" #toyName>
+    </div>
+    <div>
+      <label for="size">Size:</label>
+      <input id="size" #toySize>
+    </div>
+    <button class="add-button" (click)="add(toyName.value, toySize.value)">Add
+      Toy
+    </button>
+  </div>
+
+</div>

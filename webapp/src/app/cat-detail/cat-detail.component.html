@@ -1,0 +1,24 @@
+<div *ngIf="cat">
+  <h2>FoodModel {{cat.name | uppercase}} details</h2>
+  <div>
+    Serial number: {{cat.id}}
+  </div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="cat.name" placeholder="name">
+  </div>
+  <div>
+    <label>Breed: </label>
+    <input [(ngModel)]="cat.breed" placeholder="breed">
+  </div>
+  <div>
+    <label>Age: </label>
+    <input [(ngModel)]="cat.catYears" placeholder="age">
+  </div>
+  <div>
+    <label>Favorite Toy: </label>
+    <input [(ngModel)]="cat.favoriteToy.name" placeholder="toy">
+  </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>
