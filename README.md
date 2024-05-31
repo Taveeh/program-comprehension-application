@@ -1,1 +1,1 @@
-# individual assignment - see `lab-requirements` file
+# Please ignore the webapp package
